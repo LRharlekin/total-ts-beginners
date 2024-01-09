@@ -5,20 +5,19 @@ import { Equal, Expect } from "./helpers/type-utils";
  * interfaces. Can you find a way to refactor this to
  * make it more DRY?
  */
-
-interface User {
+interface User extends ObjWithId {
   id: string;
   firstName: string;
   lastName: string;
 }
 
-interface Post {
+interface Post extends ObjWithId {
   id: string;
   title: string;
   body: string;
 }
 
-interface Comment {
+interface Comment extends ObjWithId {
   id: string;
   comment: string;
 }
@@ -26,5 +25,5 @@ interface Comment {
 type tests = [
   Expect<Equal<User, { id: string; firstName: string; lastName: string }>>,
   Expect<Equal<Post, { id: string; title: string; body: string }>>,
-  Expect<Equal<Comment, { id: string; comment: string }>>,
+  Expect<Equal<Comment, { id: string; comment: string }>>
 ];

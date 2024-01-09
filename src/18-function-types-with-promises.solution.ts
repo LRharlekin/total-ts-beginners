@@ -6,9 +6,15 @@ interface User {
   lastName: string;
 }
 
+/* Abstracted into types instead of inline function typeing */
+// type CreateUser = () => Promise<string>;
+// type GetUser = (userId: string) => Promise<User>;
+
 const createThenGetUser = async (
   createUser: () => Promise<string>,
-  getUser: (id: string) => Promise<User>,
+  // createUser: CreateUser,
+  getUser: (id: string) => Promise<User>
+  // getUser: GetUser
 ): Promise<User> => {
   const userId: string = await createUser();
 
@@ -24,7 +30,7 @@ it("Should create the user, then get them", async () => {
       id,
       firstName: "Matt",
       lastName: "Pocock",
-    }),
+    })
   );
 
   expect(user).toEqual({

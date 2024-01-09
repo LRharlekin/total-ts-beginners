@@ -9,7 +9,12 @@ interface User {
    * - 'super-admin'
    */
   role: "admin" | "user" | "super-admin";
+
+  // ALTERNATIVE SOLUTION
+  // role: Role;
 }
+// ALTERNATIVE SOLUTION
+// type Role = "admin" | "user" | "super-admin";
 
 export const defaultUser: User = {
   id: 1,
